@@ -31,7 +31,7 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 
 		
 		public String getAllAccounts() {
-			Query query =  manager.createQuery("Select a FROM Account a");
+			Query query =  manager.createQuery("Select a FROM ClassroomAccount a");
 			Collection<ClassroomAccount> accounts = (Collection<ClassroomAccount>) ((javax.persistence.Query) query).getResultList();
 			return util.getJSONForObject(accounts);
 		}

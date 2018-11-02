@@ -1,4 +1,7 @@
 package com.infosys.classroommanagement;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +15,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class ClassroomAccount {
+	
 
 
 
@@ -19,28 +23,37 @@ public class ClassroomAccount {
 		
 
 		@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+		@Column(name = "class_id")
 		private Long classroomid;
 		@Column(length = 100)
 		private String trainer;
-		@Column(length = 50)
-		private String traineeName;
-		@Column(length=4)
+		@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+		private List<Trainee> trainee; 
 		private String classNumber;
 
 		
 
+		
+
+
+
+
 		public ClassroomAccount() {
 			
 		}
+		
+		public List<Trainee> getTrainee() {
+			return trainee;
+		}
 
 
-//		public ClassroomAccount(String firstName, String lastName, String accountNumber) {
-//			super();
-//			this.firstName = firstName;
-//			this.lastName = lastName;
-//			this.classNumber = classNumber;
-//		}
+
+
+
+		public void setTrainee(List<Trainee> trainee) {
+			this.trainee = trainee;
+		}
+
 		public Long getClassroomid() {
 		return classroomid;
 	}
@@ -71,14 +84,8 @@ public class ClassroomAccount {
 		public void setTrainer(String trainer) {
 			this.trainer = trainer;
 		}
-
-		public String getTraineeName() {
-			return traineeName;
-		}
-
-		public void setTraineeName(String traineeName) {
-			this.traineeName = traineeName;
-		}
+		
+	
 
 		public String getAccountNumber() {
 			return classNumber;
@@ -89,7 +96,7 @@ public class ClassroomAccount {
 		}
 
 		public String giveAccount() {
-			return "Account [Trainer=" + trainer + ", Trainees=" + traineeName + ", accountNumber=" + classNumber + "]";
+			return "Account [Trainer=" + trainer + ", Trainees=" + ", accountNumber=" + classNumber + "]";
 		}
 
 	}
