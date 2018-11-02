@@ -55,7 +55,8 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 			if (ClassroomToUpdate != null) {
 				//classroomFromDB = updatedClassroom;
 				//manager.merge(classroomFromDB);
-				classroomFromDB.setTrainer(updatedClassroom.getTrainer());			
+				classroomFromDB.setTrainer(updatedClassroom.getTrainer());
+				classroomFromDB.setTrainee(updatedClassroom.getTrainee());
 				
 			}
 			return "{\"message\": \"account sucessfully updated\"}";
