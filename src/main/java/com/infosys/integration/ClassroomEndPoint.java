@@ -26,7 +26,7 @@ public class ClassroomEndPoint{
 		return service.getAllClassrooms();
 	}
 
-	@Path("/addAccount")
+	@Path("/addClassroom")
 	@POST
 	@Produces({ "application/json" })
 	public String createClassroom(String account) {
