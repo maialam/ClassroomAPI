@@ -3,15 +3,16 @@ package com.infosys.classroomapp.service;
 public interface ClassroomService {
 
 
-	String getAllAccounts();
+	String getAllClassrooms();
 
-	String createAccount(String account);
+	String createClassroom(String account);
 
-	String updateAccount(Long classroomid, String accountToUpdate);
+	String updateClassroom(Long classroomid, String accountToUpdate);
 
-	String deleteAccount(Long classroomid);
+	String deleteClassroom(Long classroomid);
 
-	String getAccount(Long classroomid);
+	String getClassroom(Long classroomid);
+
 
 
 	

@@ -6,13 +6,12 @@ import java.util.Collection;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.infosys.classroommanagement.ClassroomAccount;
+import com.infosys.classroommanagement.Classroom;
 import com.infosys.util.JSONUtil;
 
 
@@ -30,18 +29,18 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 		private JSONUtil util;
 
 		
-		public String getAllAccounts() {
-			Query query =  manager.createQuery("Select a FROM ClassroomAccount a");
-			Collection<ClassroomAccount> accounts = (Collection<ClassroomAccount>) ((javax.persistence.Query) query).getResultList();
-			return util.getJSONForObject(accounts);
+		public String getAllClassrooms() {
+			Query query =  manager.createQuery("Select a FROM Classroom a");
+			Collection<Classroom> classroom = (Collection<Classroom>) ((javax.persistence.Query) query).getResultList();
+			return util.getJSONForObject(classroom);
 		}
 
 
 		@Transactional
-		public String createAccount(String account) {
-			ClassroomAccount anAccount = util.getObjectForJSON(account, ClassroomAccount.class);
-			manager.persist(anAccount);
-			if (anAccount.getAccountNumber().equals(9999))
+		public String createClassroom(String account) {
+			Classroom aclassroom = util.getObjectForJSON(account, Classroom.class);
+			manager.persist(aclassroom);
+			if (aclassroom.getAccountNumber().equals(9999))
 					{
 				return "{\"message\": \"This account is blocked\"}";
 			} 
@@ -50,12 +49,12 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 
 
 		@Transactional(REQUIRED)
-		public String updateAccount(Long classroomid, String accountToUpdate) {
-			ClassroomAccount updatedAccount = util.getObjectForJSON(accountToUpdate, ClassroomAccount.class);
-			ClassroomAccount accountFromDB = findAccount(classroomid);
+		public String updateClassroom(Long classroomid, String accountToUpdate) {
+			Classroom updatedAccount = util.getObjectForJSON(accountToUpdate, Classroom.class);
+			Classroom classroomFromDB = findClassroom(classroomid);
 			if (accountToUpdate != null) {
-				accountFromDB = updatedAccount;
-				manager.merge(accountFromDB);
+				classroomFromDB = updatedAccount;
+				manager.merge(classroomFromDB);
 			}
 			return "{\"message\": \"account sucessfully updated\"}";
 		}
@@ -63,9 +62,9 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 		
 		
 		@Transactional(REQUIRED)
-		public String getAccount(Long classroomid) {
-			ClassroomAccount accountInDB = findAccount(classroomid);
-			 return util.getJSONForObject(accountInDB);
+		public String getClassroom(Long classroomid) {
+			Classroom classroomInDB = findClassroom(classroomid);
+			 return util.getJSONForObject(classroomInDB);
 			
 		}
 
@@ -73,16 +72,16 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 
 		
 		@Transactional(REQUIRED)
-		public String deleteAccount(Long classroomid) {
-			ClassroomAccount accountInDB = findAccount(classroomid);
-			if (accountInDB != null) {
-				manager.remove(accountInDB);
+		public String deleteClassroom(Long classroomid) {
+			Classroom classroomInDB = findClassroom(classroomid);
+			if (classroomInDB != null) {
+				manager.remove(classroomInDB);
 			}
 			return "{\"message\": \"account sucessfully deleted\"}";
 		}
 
-		private ClassroomAccount findAccount(Long classroomid) {
-			return manager.find(ClassroomAccount.class, classroomid);
+		private Classroom findClassroom(Long classroomid) {
+			return manager.find(Classroom.class, classroomid);
 		}
 
 		public void setManager(EntityManager manager) {

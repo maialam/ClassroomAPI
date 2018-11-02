@@ -15,7 +15,7 @@ public class Service {
 
 	
 
-		private Map<Integer, ClassroomAccount> hmap = new HashMap<Integer, ClassroomAccount>();
+		private Map<Integer, Classroom> hmap = new HashMap<Integer, Classroom>();
 		private static int classroomid = 1;
 
 		public Boolean searchFunction(String searchName) {
@@ -45,13 +45,13 @@ public class Service {
 //			return account;
 //		}
 
-		public void addAccount(ClassroomAccount accountToAdd) {
+		public void addAccount(Classroom accountToAdd) {
 			hmap.put(classroomid, accountToAdd);
 			classroomid++;
 		}
 
-		public ClassroomAccount searchAccount(ClassroomAccount idToSearch) {
-			ClassroomAccount result = hmap.get("classroomidToSearch");
+		public Classroom searchAccount(Classroom idToSearch) {
+			Classroom result = hmap.get("classroomidToSearch");
 			return result;
 		}
 
@@ -59,11 +59,11 @@ public class Service {
 			hmap.remove(idToDel);
 		}
 
-		public Map<Integer, ClassroomAccount> getAccount() {
+		public Map<Integer, Classroom> getAccount() {
 			return hmap;
 		}
 
-		public void setAccountMap(Map<Integer, ClassroomAccount> account) {
+		public void setAccountMap(Map<Integer, Classroom> account) {
 			this.hmap = account;
 		}
 

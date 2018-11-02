@@ -19,37 +19,37 @@ public class ClassroomEndPoint{
 	@Inject
 	private ClassroomService service;
 
-	@Path("/getAllAccounts")
+	@Path("/getAllClassrooms")
 	@GET
 	@Produces({ "application/json" })
-	public String getAllAccounts() {
-		return service.getAllAccounts();
+	public String getAllClassrooms() {
+		return service.getAllClassrooms();
 	}
 
 	@Path("/addAccount")
 	@POST
 	@Produces({ "application/json" })
-	public String createAccount(String account) {
-		return service.createAccount(account);
+	public String createClassroom(String account) {
+		return service.createClassroom(account);
 	}
 
-	@Path("/deleteAccount/{id}")
+	@Path("/deleteClassroom/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteAccount(@PathParam("id") Long classroomid) {
-		return service.deleteAccount(classroomid);
+	public String deleteClassroom(@PathParam("id") Long classroomid) {
+		return service.deleteClassroom(classroomid);
 	}
-	@Path("/getAccount/{id}")
+	@Path("/getClassroom/{id}")
 	@GET
 	@Produces({ "application/json" })
-	public String getAccount(@PathParam("id") Long classroomid) {
-		return service.getAccount(classroomid);
+	public String getClassroom(@PathParam("id") Long classroomid) {
+		return service.getClassroom(classroomid);
 	}
-	@Path("/updateAccount/{id}")
+	@Path("/updateClassroom/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAccount(@PathParam("id") Long classroomid, String accountToUpdate){
-		return service.updateAccount(classroomid, accountToUpdate);
+	public String updateClassroom(@PathParam("id") Long classroomid, String accountToUpdate){
+		return service.updateClassroom(classroomid, accountToUpdate);
 	}
 	public void setService(ClassroomService service) {
 		this.service = service;

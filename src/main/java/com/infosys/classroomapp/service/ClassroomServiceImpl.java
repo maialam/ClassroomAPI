@@ -20,24 +20,24 @@ public class ClassroomServiceImpl implements ClassroomService {
 	@Inject
 	private ClassroomServiceDB service;
 
-	public String getAllAccounts() {
-		return service.getAllAccounts();
+	public String getAllClassrooms() {
+		return service.getAllClassrooms();
 	}
 
-	public String addAccount(String account) {
-		return service.createAccount(account);
+	public String addClassroom(String account) {
+		return service.createClassroom(account);
 	}
 
-	public String deleteAccount(Long classroomid) {
-		return service.deleteAccount(classroomid);
+	public String deleteClassroom(Long classroomid) {
+		return service.deleteClassroom(classroomid);
 	}
 	
-	public String updateAccount(Long classroomid, String accountToUpdate) {
-		return service.updateAccount(classroomid, accountToUpdate);
+	public String updateClassroom(Long classroomid, String accountToUpdate) {
+		return service.updateClassroom(classroomid, accountToUpdate);
 	}
 	
-	public String createAccount(String account) {
-		return service.createAccount(account);
+	public String createClassroom(String account) {
+		return service.createClassroom(account);
 	}
 
 	public void setRepo(ClassroomServiceDB persist) {
@@ -45,8 +45,8 @@ public class ClassroomServiceImpl implements ClassroomService {
 	}
 	
 	
-	public String getAccount(Long classroomid) {
-		return service.getAccount(classroomid);
+	public String getClassroom(Long classroomid) {
+		return service.getClassroom(classroomid);
 	}
 
 
