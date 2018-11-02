@@ -6,7 +6,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 
@@ -18,16 +17,17 @@ public class ClassroomAccount {
 
 
 		
+
 		@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	//	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		private Long classroomid;
 		@Column(length = 100)
-		private String firstName;
+		private String trainer;
 		@Column(length = 50)
-		private String lastName;
-		@Column(length = 4)
+		private String traineeName;
+		@Column(length=4)
 		private String classNumber;
-		@JoinColumn
-		@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
 		
 
 		public ClassroomAccount() {
@@ -41,42 +41,55 @@ public class ClassroomAccount {
 //			this.lastName = lastName;
 //			this.classNumber = classNumber;
 //		}
+		public Long getClassroomid() {
+		return classroomid;
+	}
+
+
+	public void setClassroomid(Long classroomid) {
+		this.classroomid = classroomid;
+	}
+
+
+	public String getClassNumber() {
+		return classNumber;
+	}
+
+
+	public void setClassNumber(String classNumber) {
+		this.classNumber = classNumber;
+	}
+
 		
-		public Long getId() {
-			return classroomid;
-		}
-		
-		public void setId(Long id) {
-			this.classroomid = id;
-		}
 
 
-		public String getFirstName() {
-			return firstName;
+
+		public String getTrainer() {
+			return trainer;
 		}
 
-		public void setFirstName(String firstName) {
-			this.firstName = firstName;
+		public void setTrainer(String trainer) {
+			this.trainer = trainer;
 		}
 
-		public String getLastName() {
-			return lastName;
+		public String getTraineeName() {
+			return traineeName;
 		}
 
-		public void setLastName(String lastName) {
-			this.lastName = lastName;
+		public void setTraineeName(String traineeName) {
+			this.traineeName = traineeName;
 		}
 
 		public String getAccountNumber() {
 			return classNumber;
 		}
 
-		public void setAccountNumber(String accountNumber) {
-			this.classNumber = accountNumber;
+		public void setAccountNumber(String classNumber) {
+			this.classNumber = classNumber;
 		}
 
 		public String giveAccount() {
-			return "Account [firstName=" + firstName + ", surname=" + lastName + ", accountNumber=" + classNumber + "]";
+			return "Account [Trainer=" + trainer + ", Trainees=" + traineeName + ", accountNumber=" + classNumber + "]";
 		}
 
 	}

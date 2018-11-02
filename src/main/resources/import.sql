@@ -1,4 +1,4 @@
-INSERT INTO Account (id, firstName, lastName, accountNumber) VALUES (0, 'John', 'Doe', 1234);
-INSERT INTO Account (id, firstName, lastName, accountNumber) VALUES (1, 'Jane', 'Doe', 1235);
-INSERT INTO Account (id, firstName, lastName, accountNumber) VALUES (2, 'Jim', 'Taylor', 1236);
-INSERT INTO Account (id, firstName, lastName, accountNumber) VALUES (3, 'Jimmy', 'Taylor', 1236);
+INSERT INTO ClassroomAccount (classroomid, trainer, traineeName, classNumber) VALUES (0, 'JohnGordon', 'JoeBloggs', 1234);
+INSERT INTO ClassroomAccount (classroomid, trainer, traineeName, classNumber) VALUES (1, 'JohnyGordon', 'JosephBloggs', 12342);
+INSERT INTO ClassroomAccount (classroomid, trainer, traineeName, classNumber) VALUES (2, 'JohnnyBravo', 'JoelBloggs', 12345);
+
