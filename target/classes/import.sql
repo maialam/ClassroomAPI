@@ -1,4 +1,5 @@
-INSERT INTO ClassroomAccount (classroomid, trainer, traineeName, classNumber) VALUES (0, 'JohnGordon', 'JoeBloggs', 1234);
-INSERT INTO ClassroomAccount (classroomid, trainer, traineeName, classNumber) VALUES (1, 'JohnyGordon', 'JosephBloggs', 12342);
-INSERT INTO ClassroomAccount (classroomid, trainer, traineeName, classNumber) VALUES (2, 'JohnnyBravo', 'JoelBloggs', 12345);
-
+INSERT INTO Classroom (CLASSROOMID, CLASSNUMBER, TRAINER) VALUES (1, '1234', 'JOHN GORDON');
+INSERT INTO Trainee (CLASSROOMID, TRAINEENAME) VALUES ('12345','MATT HUNT');
+INSERT INTO Trainee (CLASSROOMID, TRAINEENAME) VALUES ('12345','John ');
+INSERT INTO CLASSROOM_TRAINEE(CLASSROOM_CLASSROOMID, TRAINEE_ID) VALUES (1,1)
+INSERT INTO CLASSROOM_TRAINEE(CLASSROOM_CLASSROOMID, TRAINEE_ID) VALUES (1,2)
