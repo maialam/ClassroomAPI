@@ -40,7 +40,7 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 		public String createClassroom(String account) {
 			Classroom aclassroom = util.getObjectForJSON(account, Classroom.class);
 			manager.persist(aclassroom);
-			if (aclassroom.getAccountNumber().equals(9999))
+			if (aclassroom.getClassroomNumber().equals(9999))
 					{
 				return "{\"message\": \"This account is blocked\"}";
 			} 
@@ -49,12 +49,14 @@ public class ClassroomServiceDBImpl implements ClassroomServiceDB {
 
 
 		@Transactional(REQUIRED)
-		public String updateClassroom(Long classroomid, String accountToUpdate) {
-			Classroom updatedAccount = util.getObjectForJSON(accountToUpdate, Classroom.class);
+		public String updateClassroom(Long classroomid, String ClassroomToUpdate) {
+			Classroom updatedClassroom = util.getObjectForJSON(ClassroomToUpdate, Classroom.class);
 			Classroom classroomFromDB = findClassroom(classroomid);
-			if (accountToUpdate != null) {
-				classroomFromDB = updatedAccount;
-				manager.merge(classroomFromDB);
+			if (ClassroomToUpdate != null) {
+				//classroomFromDB = updatedClassroom;
+				//manager.merge(classroomFromDB);
+				classroomFromDB.setTrainer(updatedClassroom.getTrainer());			
+				
 			}
 			return "{\"message\": \"account sucessfully updated\"}";
 		}

@@ -59,7 +59,7 @@ public class Service {
 			hmap.remove(idToDel);
 		}
 
-		public Map<Integer, Classroom> getAccount() {
+		public Map<Integer, Classroom> getClassroom() {
 			return hmap;
 		}
 

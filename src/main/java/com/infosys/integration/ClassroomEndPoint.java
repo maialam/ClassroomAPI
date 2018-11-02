@@ -29,8 +29,8 @@ public class ClassroomEndPoint{
 	@Path("/addClassroom")
 	@POST
 	@Produces({ "application/json" })
-	public String createClassroom(String account) {
-		return service.createClassroom(account);
+	public String createClassroom(String Classroom) {
+		return service.createClassroom(Classroom);
 	}
 
 	@Path("/deleteClassroom/{id}")
@@ -48,8 +48,8 @@ public class ClassroomEndPoint{
 	@Path("/updateClassroom/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateClassroom(@PathParam("id") Long classroomid, String accountToUpdate){
-		return service.updateClassroom(classroomid, accountToUpdate);
+	public String updateClassroom(@PathParam("id") Long classroomid, String ClassroomToUpdate){
+		return service.updateClassroom(classroomid, ClassroomToUpdate);
 	}
 	public void setService(ClassroomService service) {
 		this.service = service;

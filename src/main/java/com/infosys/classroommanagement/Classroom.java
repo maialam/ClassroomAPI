@@ -60,11 +60,11 @@ public class Classroom {
 		this.trainer = trainer;
 	}
 
-	public String getAccountNumber() {
+	public String getClassroomNumber() {
 		return classNumber;
 	}
 
-	public void setAccountNumber(String classNumber) {
+	public void setClassroomNumber(String classNumber) {
 		this.classNumber = classNumber;
 	}
 
